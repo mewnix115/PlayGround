@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#101114" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23d4ad72%22>✦</text></svg>" />
+  <title>Vesper: The Hollow House</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script type="importmap">
+    {"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js"}}
+  </script>
+</head>
+<body>
+  <main id="game" aria-label="Vesper: The Hollow House game">
+    <canvas id="world"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">✦</span><div><b>VESPER</b><small>THE HOLLOW HOUSE</small></div></div>
+      <div class="chapter">CHAPTER I <i></i> THE ASHEN COURTYARD</div>
+      <button id="sound-toggle" class="icon-button" aria-label="Toggle sound">♫ <span>SOUND</span></button>
+    </header>
+    <section class="hud-left" aria-label="Character status">
+      <div class="portrait"><span>V</span><i></i></div>
+      <div class="bars">
+        <div class="bar-label"><span>VITALITY</span><b id="hp-text">100 / 100</b></div>
+        <div class="bar"><i id="hp-fill"></i></div>
+        <div class="bar-label second"><span>STAMINA</span><b id="st-text">100</b></div>
+        <div class="bar stamina"><i id="st-fill"></i></div>
+        <div class="souls"><span class="soul-gem">◆</span><span id="soul-count">0</span><small>EMBER</small></div>
+      </div>
+    </section>
+    <section class="boss-hud" id="boss-hud" aria-hidden="true">
+      <div class="boss-title"><span>THE HOUSEKEEPER</span><small>Warden of the Courtyard</small></div>
+      <div class="boss-track"><i id="boss-fill"></i></div>
+    </section>
+    <div class="objective" id="objective"><span class="objective-icon">◇</span><div><small>YOUR PURPOSE</small><b id="objective-text">Find a way through the courtyard</b></div></div>
+    <div class="toast" id="toast"><span>✦</span><b id="toast-text">The house remembers.</b></div>
+    <div class="interact-hint" id="interact-hint">[ E ]  <span>REST AT THE SHRINE</span></div>
+    <div class="center-message" id="center-message"><span>YOU DIED</span><small>The house keeps what it is owed.</small></div>
+    <div class="controls-hint"><span>WASD</span> MOVE <i>·</i> <span>SPACE</span> ATTACK <i>·</i> <span>SHIFT</span> DODGE</div>
+    <div class="mobile-controls" id="mobile-controls">
+      <div class="stick-zone" id="stick-zone"><div class="stick-base"><div class="stick-knob" id="stick-knob"></div></div></div>
+      <div class="action-buttons">
+        <button class="action dodge" id="dodge-btn"><span>↗</span><small>DODGE</small></button>
+        <button class="action attack" id="attack-btn"><span>⚔</span><small>ATTACK</small></button>
+        <button class="action interact" id="interact-btn"><span>✧</span><small>USE</small></button>
+      </div>
+    </div>
+    <div class="loading" id="loading"><div class="loader-mark">✦</div><span>THE HOUSE IS WAKING</span></div>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
